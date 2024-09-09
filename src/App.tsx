@@ -18,7 +18,7 @@ const routes = createBrowserRouter(
 );
 
 
-function App() {
+const App: React.FC = () => {
   return (
     <RouterProvider router={routes} />
   );

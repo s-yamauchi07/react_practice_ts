@@ -1,7 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset} = useForm<FormValues>();
   
   type FormValues = {

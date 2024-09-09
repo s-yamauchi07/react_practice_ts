@@ -10,7 +10,7 @@ type PostType = {
   content: string;
 };
 
-const Post = () => {
+const Post: React.FC = () => {
   const { id } = useParams<string>();
   const [post, setPost] = useState<PostType>();
   const [isLoading, setLoading] = useState<boolean>(true);

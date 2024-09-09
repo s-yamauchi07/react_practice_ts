@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home: React.FC = () => {
   const [posts, setPosts] = useState<PostType[]>();
   const [isLoading, setLoading] = useState<boolean>(true);
 
