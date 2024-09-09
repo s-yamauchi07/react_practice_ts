@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const Header= () => {
   return(
     <div className='bg-gray-800'>
       <ul className='flex justify-between p-6 text-white font-bold'>
-        <li>Blog</li>
-        <li>お問い合わせ</li>
+        <li><Link to="/">Blog</Link></li>
+        <li><Link to="/contact">お問い合わせ</Link></li>
       </ul>
     </div>
   )
