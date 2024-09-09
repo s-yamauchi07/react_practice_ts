@@ -3,10 +3,10 @@ import parse from 'html-react-parser';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  const [posts, setPosts] = useState<PostType[]>();
+  const [posts, setPosts] = useState<Post[]>();
   const [isLoading, setLoading] = useState<boolean>(true);
 
-  type PostType = {
+  type Post = {
     id: number,
     title: string,
     createdAt: string,
@@ -18,7 +18,7 @@ const Home: React.FC = () => {
     const getAllPosts = async() => {
       try {
         const response = await fetch('https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts');
-        const data = await response.json() as { posts: PostType[]};
+        const data = await response.json() as { posts: Post[]};
         setPosts(data.posts);
         setLoading(false);
       } catch(error) {

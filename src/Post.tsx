@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { useEffect, useState } from 'react';
 
-type PostType = {
+type Post = {
   id: number;
   title: string;
   createdAt: string;
@@ -12,14 +12,14 @@ type PostType = {
 
 const Post: React.FC = () => {
   const { id } = useParams<string>();
-  const [post, setPost] = useState<PostType>();
+  const [post, setPost] = useState<Post>();
   const [isLoading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const findPost = async () => {
       try {
         const response = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`);
-        const data = await response.json() as { post: PostType };
+        const data = await response.json() as { post: Post };
         setPost(data.post);
         setLoading(false);
       } catch (error) {
