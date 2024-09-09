@@ -3,7 +3,7 @@ import parse from 'html-react-parser';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>();
+  const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
 
   type Post = {
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
 
   const changeDateFormat = (date: string) => date.substring(0, date.indexOf('T')).replace(/-/g, '/');
 
-  if(!posts) return <div>記事が見つかりませんでした</div>;
+  if(!posts.length) return <div>記事が見つかりませんでした</div>;
   if(isLoading) return <div>読み込み中...</div>;
 
   return(
