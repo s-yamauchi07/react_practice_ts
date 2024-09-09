@@ -30,7 +30,8 @@ const Home = () => {
 
   const changeDateFormat = (date: string) => date.substring(0, date.indexOf('T')).replace(/-/g, '/');
 
-  if(isLoading || !posts) return <div>読み込み中...</div>
+  if(!posts) return <div>記事が見つかりませんでした</div>;
+  if(isLoading) return <div>読み込み中...</div>;
 
   return(
     <>
