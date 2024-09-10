@@ -1,15 +1,8 @@
 import { useParams } from 'react-router-dom';
 import parse from 'html-react-parser';
 import { useEffect, useState } from 'react';
-
-type Post = {
-  id: number;
-  title: string;
-  createdAt: string;
-  categories: string[];
-  content: string;
-};
-
+import type { Post } from './app/_types/Post'
+ 
 const Post: React.FC = () => {
   const { id } = useParams<string>();
   const [post, setPost] = useState<Post>();
@@ -31,8 +24,8 @@ const Post: React.FC = () => {
 
   const changeDateFormat = (date: string) => date.substring(0, date.indexOf('T')).replace(/-/g, '/');
 
-  if(!post) return <div>記事が見つかりませんでした</div>;
   if (isLoading) return <div>読み込み中...</div>;
+  if(!post) return <div>記事が見つかりませんでした</div>;
 
   return (
     <div className="pt-14 flex flex-col items-center">

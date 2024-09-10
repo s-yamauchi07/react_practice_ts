@@ -1,18 +1,11 @@
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import { Link } from 'react-router-dom';
+import type { Post } from './app/_types/Post';
 
 const Home: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
-
-  type Post = {
-    id: number,
-    title: string,
-    createdAt: string,
-    categories: string[],
-    content: string
-  }
 
   useEffect(()=> {
     const getAllPosts = async() => {
@@ -30,8 +23,8 @@ const Home: React.FC = () => {
 
   const changeDateFormat = (date: string) => date.substring(0, date.indexOf('T')).replace(/-/g, '/');
 
-  if(!posts.length) return <div>記事が見つかりませんでした</div>;
   if(isLoading) return <div>読み込み中...</div>;
+  if(!posts.length) return <div>記事が見つかりませんでした</div>;
 
   return(
     <>
